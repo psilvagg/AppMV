@@ -5,7 +5,8 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/logo-head.png",
-    "userInterfaceStyle": "light",
+    "platforms": ["ios", "android", "web"],
+    "userInterfaceStyle": "auto",
     "newArchEnabled": true,
     "splash": {
       "image": "./assets/logo-head.png",
