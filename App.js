@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { StatusBar } from "expo-status-bar";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import Cadastro from "./src/Screens/Cadastro"; 
@@ -14,6 +15,7 @@ function LoginScreen({ navigation }) {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#e8ecf4" }}>
+      <StatusBar style="dark" />
       <View style={styles.container}>
         <View style={styles.header}>
           <Image
