@@ -34,6 +34,7 @@ export default function App() {
             <Text style={styles.inputLabel}>E-mail</Text>
             <TextInput
               autoCapitalize="none"
+              keyboardType="email-address"
               placeholder="email@example.com"
               placeholderTextColor="#6b7280"
               style={styles.inputControl}
