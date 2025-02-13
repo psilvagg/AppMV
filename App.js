@@ -1,20 +1,17 @@
-import { StatusBar } from "expo-status-bar";
-import { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  Image,
-  TextInput,
-  TouchableOpacity,
-} from "react-native";
+import React, { useState } from "react";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+import Cadastro from "./src/Screens/Cadastro"; 
+import { StyleSheet, Text, View, SafeAreaView, Image, TextInput, TouchableOpacity } from "react-native";
 
-export default function App() {
+const Stack = createStackNavigator();
+
+function LoginScreen({ navigation }) {
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#e8ecf4" }}>
       <View style={styles.container}>
@@ -39,8 +36,8 @@ export default function App() {
               placeholderTextColor="#6b7280"
               style={styles.inputControl}
               value={form.email}
-              onChangeText={(email) => setForm({ form, email })}
-            ></TextInput>
+              onChangeText={(email) => setForm({ ...form, email })}
+            />
           </View>
         </View>
 
@@ -53,8 +50,8 @@ export default function App() {
               placeholderTextColor="#6b7280"
               style={styles.inputControl}
               value={form.password}
-              onChangeText={(password) => setForm({ form, password })}
-            ></TextInput>
+              onChangeText={(password) => setForm({ ...form, password })}
+            />
           </View>
         </View>
 
@@ -66,7 +63,10 @@ export default function App() {
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity style={{ marginTop: "auto" }} onPress={() => {}}>
+        <TouchableOpacity
+          style={{ marginTop: "auto" }}
+          onPress={() => navigation.navigate("Cadastro")}
+        >
           <Text style={styles.formFooter}>
             Não tem uma conta?{" "}
             <Text style={{ textDecorationLine: "underline" }}>Registre-se</Text>
@@ -74,6 +74,17 @@ export default function App() {
         </TouchableOpacity>
       </View>
     </SafeAreaView>
+  );
+}
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Cadastro" component={Cadastro} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
