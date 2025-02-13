@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import Cadastro from "./src/Screens/Cadastro"; 
-import { StyleSheet, Text, View, SafeAreaView, Image, TextInput, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, Image, TextInput, TouchableOpacity, Alert } from "react-native";
 
 const Stack = createStackNavigator();
 
@@ -24,7 +24,7 @@ function LoginScreen({ navigation }) {
             style={styles.headerImg}
           />
           <Text style={styles.title}>Entre no Minhas Vacinas</Text>
-          <Text style={styles.subtitle}>NAO SEI OQ LÁ LA LA</Text>
+          <Text style={styles.subtitle}>[ Subtítulo ]</Text>
         </View>
         <View style={styles.form}>
           <View style={styles.input}>
@@ -56,7 +56,9 @@ function LoginScreen({ navigation }) {
         </View>
 
         <View style={styles.formAction}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => {
+            Alert.alert('Sucesso!')
+          }}>
             <View style={styles.btn}>
               <Text style={styles.btnText}>Entrar</Text>
             </View>
