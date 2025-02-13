@@ -1,0 +1,9 @@
+{
+  "background_color": "#000",
+  "display": "standalone",
+  "lang": "en",
+  "name": "Minhas Vacinas",
+  "short_name": "Minhas Vacinas",
+  "start_url": "/?utm_source=web_app_manifest",
+  "orientation": "portrait"
+}
